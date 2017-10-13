@@ -6,7 +6,7 @@ class Bag
 
 	end
 
-	def add_to_bag(toy, child)
+	def add_to_bag(child, toy)
 		begin
 			#Checks the child file to see if chilf has been good
 			file = File.open('children.yaml', 'r')
@@ -48,7 +48,7 @@ class Bag
 		end
 	end
 
-	def remove_from_bag(toy, child)
+	def remove_from_bag(child, toy)
 		file = File.open('deliveries.yaml', 'r+')
 		delivery_list = YAML::load(file)
 		child_current_toys = delivery_list.fetch(child)
