@@ -1,0 +1,25 @@
+---
+Dave:
+- :good: true
+- :delivered: false
+Barry:
+- :good: true
+- :delivered: true
+Bart:
+- :good: false
+- :delivered: false
+Silvio:
+- :good: true
+- :delivered: true
+Jenny:
+- :good: true
+- :delivered: true
+Adrian:
+- :good: true
+- :delivered: false
+Jude:
+- :good: false
+- :delivered: false
+Mattias:
+- :good: true
+- :delivered: true

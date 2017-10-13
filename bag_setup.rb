@@ -1,16 +1,32 @@
 require 'yaml'
 
 child_hash = {
-	"Dan" => false,
-	"Barry" => true,
-	"Bart"	=> false,
-	"Silvio" => true,
-	"Jenny" => true,
-	"Adrian" => true,
-	"Jude" => false,
-	"Mattias" => true
+	"Dave" => [
+		{:good => true},
+		{:delivered => false}],
+	"Barry" => [
+		{:good => true},
+		{:delivered => true}],
+	"Bart"	=> [
+		{:good => false},
+		{:delivered => false}],
+	"Silvio" => [
+		{:good => true},
+		{:delivered => true}],
+	"Jenny" => [
+		{:good => true},
+		{:delivered => true}],
+	"Adrian" => [
+		{:good => true},
+		{:delivered => false}],
+	"Jude" => [
+		{:good => false},
+		{:delivered => false}],
+	"Mattias" => [
+		{:good => true},
+		{:delivered => true}]
 }
-puts child_hash
+# puts child_hash
 
 gift_hash = {
 	:toy_1 => "Slinky",
@@ -19,17 +35,23 @@ gift_hash = {
 	:toy_4 => "Green Slime",
 	:toy_5 => "Ball"
 }
-puts gift_hash
+# puts gift_hash
 
  bag_hash = {
+ 	"Dave" => [],
  	"Barry" => ["Rubick's Cube", "Ball"],
- 	"Jenny" => ["Ball", "Green Slime"]
+ 	"Bart" => [],
+ 	"Silvio" => [],
+ 	"Jenny" => ["Ball", "Green Slime"],
+ 	"Adrian" => [],
+ 	"Jude" => [],
+ 	"Mattias" => []
 }
-puts bag_hash
+# puts bag_hash
 
-dump = File.open('toy_database.yaml', 'w+')
-dump.puts YAML::dump(child_hash)
-dump.puts YAML::dump(gift_hash)
+dump = File.open('deliveries.yaml', 'w+')
+# dump.puts YAML::dump(child_hash)
+# dump.puts YAML::dump(gift_hash)
 dump.puts YAML::dump(bag_hash)
 dump.close
 
