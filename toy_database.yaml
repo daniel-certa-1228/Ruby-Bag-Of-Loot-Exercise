@@ -1,0 +1,22 @@
+---
+Dan: false
+Barry: true
+Bart: false
+Silvio: true
+Jenny: true
+Adrian: true
+Jude: false
+Mattias: true
+---
+:toy_1: Slinky
+:toy_2: Rubick's Cube
+:toy_3: Lawn Darts
+:toy_4: Green Slime
+:toy_5: Ball
+---
+Barry:
+- Rubick's Cube
+- Ball
+Jenny:
+- Ball
+- Green Slime
