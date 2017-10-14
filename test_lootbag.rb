@@ -66,22 +66,26 @@ class LootTest < MiniTest::Test
 		assert_output("slinky\npuzzle\ngame\nkite\nball\n"){ print "slinky\npuzzle\ngame\nkite\nball\n" }
 	end
 
+	def test_list_good_kids
+		bag = Bag.new
+		bag.list_good_children
+		assert_output("Dave\nBarry\nSilvio\nJenny\nAdrian\nMattias\n"){ print "Dave\nBarry\nSilvio\nJenny\nAdrian\nMattias\n" }
+	end
+
+	def test_list_childs_toys
+		bag = Bag.new
+		bag.list_toys_per_child('Barry')
+		assert_output("ball\nkite\n"){ print "ball\nkite\n" }
+	end
+
+	def test_delivered
+		bag = Bag.new
+		bag.toys_delivered('Barry')
+		assert_output("Delivered!\n") { puts "Delivered!" }
+	end
 
 	def teardown
 		puts "Tearing Down"
 	end
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 end
