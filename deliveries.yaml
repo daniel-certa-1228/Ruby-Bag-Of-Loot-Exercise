@@ -1,16 +1,20 @@
 ---
-Dave: []
+Dave:
+- kite
 Barry:
 - kite
 - ball
 Bart: []
 Silvio:
 - slinky
-- darts
+- game
 Jenny:
 - ball
-- darts
+- game
+- slinky
 Adrian:
 - ball
 Jude: []
-Mattias: []
+Mattias:
+- game
+- puzzle

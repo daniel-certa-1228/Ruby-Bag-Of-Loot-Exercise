@@ -17,7 +17,16 @@ when 'add'
 	end
 
 when 'remove'
-	bag.remove_from_bag(child, toy)
+	begin
+
+		raise ArgumentError, "You need to type both the child's name and toy after 'remove'." if (child==nil || toy==nil)
+
+		bag.remove_from_bag(child, toy)
+
+		rescue ArgumentError => e
+			puts "#{e.message}"
+
+	end
 
 when 'ls_child_toys'
 	bag.list_toys_per_child(child)
@@ -28,12 +37,15 @@ when 'ls_toy_stock'
 when 'ls_good_kids'
 	bag.list_good_children
 
-end
-# bag.list_toys_per_child('Barry')
-# bag.list_good_children
-# bag.add_to_bag('darts', 'Silvio')
-# bag.list_toy_stock
-# bag.remove_from_bag('darts', 'Barry')
+when 'delivered'
+	bag.toys_delivered(child)
 
-# rescue ArgumentError => e
-# 			puts "You must enter a child's name to list their toys."
+else
+	puts "To access information:"
+	puts "Type 'add' [child name] [toy name] to add a toy to the bag."
+	puts "Type 'remove' [child name] [toy name] to remove a toy from the bag."
+	puts "Type 'ls_child_toys' [child name] to see a child's toy list."
+	puts "Type 'ls_toy_stock' to see the available toys."
+	puts "Type 'ls_good_kids' to see the children that will receive toys."
+	puts "Type 'delivered' [child name] to see if a child's toys have been delivered."
+end

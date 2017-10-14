@@ -27,7 +27,8 @@ class Bag
 	 			#if child is good and they don't yet have the toy, they'll get it	
 	 			else
 	 				current_toys.push(toy)
-	 				puts current_toys
+	 				# puts current_toys
+	 				puts "A #{toy} was added to #{child}'s bag."
 	 			end
 	 			file3.rewind
 	 			file3.puts YAML::dump(delivery_list)
@@ -57,6 +58,7 @@ class Bag
 
 		if toy_is_there&&(is_ball==false)
 			child_current_toys.delete(toy)
+			puts "A #{toy} was removed from #{child}'s bag."
 		elsif toy_is_there&&(is_ball)
 			puts "Balls cannot be removed from the sack."
 		else
@@ -64,6 +66,7 @@ class Bag
 		end
 
 		file.rewind
+		file.truncate(0)
 		file.puts YAML::dump(delivery_list)
 		file.close
 	end
@@ -98,4 +101,37 @@ class Bag
 		end
 	end
 
+	def toys_delivered(child)
+		begin
+			file = File.open('children.yaml', 'r')
+			delivered_list = YAML::load(file)
+			# puts delivered_list
+			status = delivered_list.fetch(child)[1].fetch(:delivered)
+			if status
+				puts "Delivered!"
+			else
+				puts "Not delivered."
+			end
+			rescue KeyError => e
+			puts "That child is not on our list."
+		end
+	end
 end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
