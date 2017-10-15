@@ -101,6 +101,28 @@ class Bag
 		end
 	end
 
+	def set_toys_delivered(child)
+		begin
+			file = File.open('children.yaml', 'r+')
+			delivered_list = YAML::load(file)
+			status = delivered_list.fetch(child)[1].fetch(:delivered)
+			if status
+			puts "#{child}'s toys have already been delivered."
+			else
+				delivered_list.fetch(child)[1][:delivered] = true
+				file.rewind
+				file.truncate(0)
+				file.puts YAML::dump(delivered_list)
+				puts "#{child}'s status changes to Delivered!"
+			end
+			file.close
+
+			rescue KeyError => e
+				puts "That child is not on our list."
+				file.close
+		end
+	end
+
 	def toys_delivered(child)
 		begin
 			file = File.open('children.yaml', 'r')
@@ -117,21 +139,3 @@ class Bag
 		end
 	end
 end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

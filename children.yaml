@@ -10,10 +10,10 @@ Bart:
 - :delivered: false
 Silvio:
 - :good: true
-- :delivered: true
+- :delivered: false
 Jenny:
 - :good: true
-- :delivered: true
+- :delivered: false
 Adrian:
 - :good: true
 - :delivered: false
@@ -23,3 +23,4 @@ Jude:
 Mattias:
 - :good: true
 - :delivered: true
+

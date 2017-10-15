@@ -84,8 +84,24 @@ class LootTest < MiniTest::Test
 		assert_output("Delivered!\n") { puts "Delivered!" }
 	end
 
+	def test_set_delivered
+		bag = Bag.new
+		bag.set_toys_delivered('Dave')
+		file = File.open('children.yaml', 'r+')
+		delivered_list = YAML::load(file)
+		status = delivered_list.fetch('Dave')[1].fetch(:delivered)
+
+		assert_equal true, status
+
+		delivered_list.fetch('Dave')[1][:delivered] = false
+
+		file.rewind
+		file.truncate(0)
+		file.puts YAML::dump(delivered_list)
+		file.close
+	end
+
 	def teardown
 		puts "Tearing Down"
 	end
-
 end
